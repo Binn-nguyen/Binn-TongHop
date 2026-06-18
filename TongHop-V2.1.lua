@@ -1,4 +1,8 @@
 -- =============================================================================
+-- BINN HUB: FIX CRASHED AND UPDATE THÊM HOP 
+-- =============================================================================
+
+-- =============================================================================
 -- BINN HUB: DANG NGUYEN THIEN PHUC (AUTO-LAYOUT WITH TOGGLE BUTTON)
 -- =============================================================================
 
@@ -15,7 +19,7 @@ if CoreGui:FindFirstChild("BinnHub-TongHopV1") and CoreGui["BinnHub-TongHopV1"] 
     CoreGui["BinnHub-TongHopV1"]:Destroy()
 end
 
--- [1. KHỦNG CHÍNH - MAIN FRAME]
+-- [1. KHUNG CHÍNH - MAIN FRAME]
 local Main = Instance.new("Frame", ScreenGui)
 Main.Size = UDim2.fromOffset(480, 420)
 Main.Position = UDim2.new(0.5, -240, 0.5, -210)
@@ -115,13 +119,12 @@ ContentFrame.Size = UDim2.new(1, 0, 1, -80)
 ContentFrame.Position = UDim2.new(0, 0, 0, 80)
 ContentFrame.BackgroundTransparency = 1
 
--- [4. LOGIC XỬ LÝ CHẠY SCRIPT TỰ ĐỘNG THÊM LOADSTRING]
+-- [4. LOGIC TỰ ĐỘNG THÊM LOADSTRING KHI BẤM NÚT]
 local function Execute(name, link)
     task.spawn(function()
         local delayTime = math.random(5, 10) 
         print("Đang khởi chạy " .. name .. " sau " .. delayTime .. "s...")
         task.wait(delayTime)
-        -- Tự động bọc loadstring(game:HttpGet()) xung quanh link https công khai
         loadstring(game:HttpGet(link))()
     end)
 end
@@ -201,7 +204,7 @@ local function CreateButton(parentSec, name, link)
 end
 
 -- =============================================================================
--- // CẤU HÌNH DATA SCRIPTS CHỈ DÙNG LINK HTTPS (BỎ LOADSTRING)
+-- // CẤU HÌNH DATA SCRIPTS
 -- =============================================================================
 
 -- TAB 1: Blox Fruits
@@ -232,6 +235,11 @@ CreateButton(s2, "Tzuan hub (no key)", "https://raw.githubusercontent.com/tzuany
 CreateButton(s2, "Night hub 30/4 (no key)", "https://raw.githubusercontent.com/WhiteX1208/Scripts/refs/heads/main/BF-Beta.lua")
 CreateButton(s2, "Andepzai hub", "https://raw.githubusercontent.com/DarkMuscles/Games/Roblox/Bloxfruits/AnDepZaiHub.lua")
 CreateButton(s2, "NatAov Kaitun BF", "https://raw.githubusercontent.com/Dev-AnhTuansitink/NatAov-Hub/refs/heads/main/NatAovKaitunBF.lua")
+
+local s5 = AddSection(Tab1, "Hop Server")
+CreateButton(s5, "Night Hub Hop Server (có key)", "https://raw.githubusercontent.com/WhiteX1208/Scripts/refs/heads/main/HopScript.luau")
+CreateButton(s5, "Teddy Hub Hop Server (có key)", "https://raw.githubusercontent.com/Teddyseetink/Haidepzai/refs/heads/main/TEDDYHUB-FREEMIUM")
+CreateButton(s5, "Matsune Hub Hop Server", "https://raw.githubusercontent.com/RealMatsune/RealDragonToro/refs/heads/main/AutoMainHop.lua")
 
 -- TAB 2: Garden
 local Tab2 = CreateTab("Garden", 1)
